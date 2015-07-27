@@ -17,26 +17,13 @@ client = pytumblr.TumblrRestClient(
 )
 
 off =0
-ind = 0
-f = open('out.txt','w')
-while off <40:
+while True:
    my_dict = client.following(offset =off)
+   print my_dict
    res = my_dict['blogs']
-   
    for rs in res:
-       rest = []
-       data =  rs['title']
-       #r = duckduckgo.query(data)
-       w = data.split(' ')
-       for wq in w:
-           check_word(wq)
-       
-       noun = ' '.join(rest)
-       
-       
-       #print r.related[0].text
-       f.write(rs['title'] + "            " +noun +"\n")
-       #print(rs['name'] + "...."+ rs['title'] +"\n")
+       print(rs['name'] + "...."+ rs['title'])
        #print "hi"
  
    off+=20
+#pprint(data)    
